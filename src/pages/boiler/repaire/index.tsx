@@ -1,19 +1,60 @@
 import { FC } from 'react';
-import { HiChevronDown } from 'react-icons/hi';
-import { Alert, Button } from "@mui/material";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import {
+  Alert,
+  Button,
+  Checkbox,
+  FormGroup,
+  FormControlLabel,
+} from "@mui/material";
 import { common } from '@mui/material/colors';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import { QuestionAnswer, Schedule, Build } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-
+import { FreeAskQuestions } from '../../../components/freequestions';
+import { FreeAskQuestionType } from '../../../models/free-ask-question';  
+import { WhyChooseUsComp } from '../../../components/why-choose-us';
+import { HowItWorksComp } from '../../../components/how-it-works';
+import { OfferLinksComp } from '../../../components/offer-links';
+  
 export const BoilerRepaire: FC = () => {
+  const questions1: FreeAskQuestionType[] = [
+    {
+      title: 'Trusted Professionals',
+      description: 'Fully qualified an dapproved members of the Gas Safe Register, with over 15 years of experience in fast, effective boiler and central heating repairs.'
+    },
+    {
+      title: 'Convenient Scheduling',
+      description: 'We offer 2-4 hour arrival slots - no need to wait around all day. We also offer same day appointments for your convenience, so that you can get your boilder issues resolved quickly.',
+    },
+    {
+      title: 'Specialists in repairing',
+      description: 'All makes and models of Combi, System, and Regular boilers, regardless of age.'
+    },
+    {
+      title: 'Comprehensive Warranty',
+      description: 'All boiler repairs come with a full 12-month parts and labour guarantee.'
+    }
+  ];
+  const questions2: FreeAskQuestionType[] = [
+    {
+      title: 'I have a conventional System do you repair them?',
+      description: <><b>Convenentional System:</b> You have a cylinder usually located in an airing cupboard; boiler generally tends to be either in the bedroom or even in any other part of the house.
+        This type of system consists of 2 tanks in the loft, it has hot water temperature control on the cylinder and a room thermostat for the heating usually located in the hallway.<br /><br />
+        Some conventional boilers don&apos;t have a programmer or temperature control for heating and hot water.<br /><br />
+        We can carry out repairs on this kind of system, as well as enhance the same system to achieve optimal performance with minor modifications to suit your budget.</>
+    },
+    {
+      title: <>What if my boiler can&apos;t be fixed?</>,
+      description: <>If your Boiler is beyond economical repair, the best option is to replace with a modern boiler.In such cases, we&apos;ll conduct a survey for a replacement boiler and provide you with a quote.</>
+    },
+    {
+      title: 'Do you offer fixed price repairs?',
+      description: 'We will come and assess your breakdown and and offer you a fixed price quote.'
+    },
+    {
+      title: 'Do you repair all makes/models of boiler?',
+      description: 'We specialise in repairing almost all gas boilers.'
+    }
+  ];
+
   return (
     <>
       <div className='w-full text-4xl font-serif my-10 text-center'>We Take Pride In Our Workmanship</div>
@@ -32,6 +73,8 @@ export const BoilerRepaire: FC = () => {
           <FormGroup>
             <FormControlLabel
               className='my-2'
+              checked={true}
+              onChange={() => { }}
               control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
               label={<div>
                 <div className='font-bold'>Price by the job - not by the hour</div>
@@ -40,6 +83,8 @@ export const BoilerRepaire: FC = () => {
             />
             <FormControlLabel
               className='my-2'
+              checked={true}
+              onChange={() => { }}
               control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
               label={<div>
                 <div className='font-bold'>Same Day Services</div>
@@ -52,6 +97,8 @@ export const BoilerRepaire: FC = () => {
           <FormGroup>
             <FormControlLabel
               className='my-2'
+              checked={true}
+              onChange={() => { }}
               control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
               label={<div>
                 <div className='font-bold'>12 - Month Guarantee</div>
@@ -60,6 +107,8 @@ export const BoilerRepaire: FC = () => {
             />
             <FormControlLabel
               className='my-2'
+              checked={true}
+              onChange={() => { }}
               control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
               label={<div>
                 <div className='font-bold'>Upfront Fixed Pricing</div>
@@ -100,95 +149,9 @@ export const BoilerRepaire: FC = () => {
         </Alert>
       </div>
       <div className="my-3">
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<HiChevronDown className="text-white" />}
-            aria-controls="panel1-content"
-            className="font-bold"
-            id="panel1-header"
-          >
-            Trusted Professionals
-          </AccordionSummary>
-          <AccordionDetails>
-            Fully qualified an dapproved members of the Gas Safe Register, with over 15 years of experience in fast, effective boiler and central heating repairs.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<HiChevronDown className="text-white" />}
-            aria-controls="panel2-content"
-            className="font-bold"
-            id="panel2-header"
-          >
-            Convenient Scheduling
-          </AccordionSummary>
-          <AccordionDetails>
-            We offer 2-4 hour arrival slots - no need to wait around all day. We also offer same day appointments for your convenience, so that you can get your boilder issues resolved quickly.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<HiChevronDown className="text-white" />}
-            aria-controls="panel3-content"
-            className="font-bold"
-            id="panel3-header"
-          >
-            Specialists in repairing
-          </AccordionSummary>
-          <AccordionDetails>
-            All makes and models of Combi, System, and Regular boilers, regardless of age.
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<HiChevronDown className="text-white" />}
-            aria-controls="panel4-content"
-            className="font-bold"
-            id="panel4-header"
-          >
-            Comprehensive Warranty
-          </AccordionSummary>
-          <AccordionDetails>
-            All boiler repairs come with a full 12-month parts and labour guarantee.
-          </AccordionDetails>
-        </Accordion>
+        <FreeAskQuestions questions={questions1} />
       </div>
-      <div className="text-2xl font-bold mt-10 mb-3">How it works</div>
-      <div className="ml-2">
-        <p className="mb-3">
-          We are fully qualified and Gas Safe Registered with an Excellent First-Time Fix Rate, so you can rely on us to get your boiler issues resolved in no time.
-        </p>
-        <div className="mb-3">
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              width: 'fit-content',
-              margin: 'auto',
-              '& > :not(style)': {
-                m: 1,
-                width: 275,
-              },
-            }}
-          >
-            <Paper className="text-center px-6 py-2">
-              <QuestionAnswer sx={{ fontSize: 120 }} />
-              <p className="text-lg font-bold my-2">STEP 1:</p>
-              <p className="text-lg mb-2">Answer a few questions regarding your boiler</p>
-            </Paper>
-            <Paper className="text-center px-6 py-2">
-              <Schedule sx={{ fontSize: 120 }} />
-              <p className="text-lg font-bold my-2">STEP 2:</p>
-              <p className="text-lg mb-2">Schedule your repair visit</p>
-            </Paper>
-            <Paper className="text-center px-6 py-2">
-              <Build sx={{ fontSize: 120 }} />
-              <p className="text-lg font-bold my-2">STEP 3:</p>
-              <p className="text-lg mb-2">An engineer will visit to diagnose and repair the isuue</p>
-            </Paper>
-          </Box>
-        </div>
-      </div>
+      <HowItWorksComp />
       <div className="text-2xl font-bold mt-10 mb-3">Call out cost</div>
       <div className="ml-2">
         Get an instant price quote and book the job at the same time by using our online tool.
@@ -214,28 +177,21 @@ export const BoilerRepaire: FC = () => {
       <div className="ml-2">
         All boiler parts we supply are covered by a minimum 12 month guarantee which means that if they fail within that time we&apos;ll replace them completely free of charge.
       </div>
-      <div className="text-4xl font-bold mt-10 mb-3 text-center">We offer range of services:</div>
-      <div className="flex text-lg font-bold mb-3 mx-auto w-fit">
-        <Link to='/'>
-          <img src="/media/images/home.png" alt="Home" className='w-20 h-20' />
-        </Link>
-        <Link to='/boilers'>
-          <img src="/media/images/boilers.png" alt="Home" className='w-20 h-20 ml-2' />
-        </Link>
-        <Link to='/central-heating'>
-          <img src="/media/images/central-heating.png" alt="Home" className='w-20 h-20 ml-2' />
-        </Link>
-        <Link to='/gas-fires'>
-          <img src="/media/images/gas-fires.png" alt="Home" className='w-20 h-20 ml-2' />
-        </Link>
-        <Link to='/plumbing'>
-          <img src="/media/images/plumbing.png" alt="Home" className='w-20 h-20 ml-2' />
-        </Link>
-        <Link to='/radiators'>
-          <img src="/media/images/radiators.png" alt="Home" className='w-20 h-20 ml-2' />
-        </Link>
+      <OfferLinksComp />
+      <WhyChooseUsComp />
+      <div className="text-2xl font-bold my-8">Frequently Asked Questions</div>
+      <div>
+        <FreeAskQuestions questions={questions2} />
       </div>
-      <div className="text-lg font-bold mb-3"></div>
+      <div className="text-lg font-bold mt-10 mb-3">Enquire today</div>
+      <div className="mb-3">
+        For a no obligation quote please call us today on <Link className='text-blue-400 hover:underline' to='tel:+441316699993'>0131 669 9993</Link> or complete the form below.
+      </div>
+      <div className="mb-3">
+        <b>We repair and service every make and model of boiler including </b>
+        Alpha - Ariston - Biasi - Baxi - Chaffoteaux - Forroli - Gledhill - Glowworm - Halstead - Heatline - Main - Ideal - Potterton - Ravenheat - Range - Remeha - Sime - Vaillant - Vokera - Viessmann - Worcester ... and many more.
+      </div>
+      <div className="mb-3"><img className='m-auto' src="/media/images/logo.png" alt="Logo" style={{ height: '45px' }} /></div>
     </>
   )
 }
