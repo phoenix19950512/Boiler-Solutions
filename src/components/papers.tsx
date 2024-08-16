@@ -9,8 +9,9 @@ export const PapersComponent: FC<{ papers: PaperType[] }> = ({ papers }) => {
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
-        width: 'fit-content',
+        justifyContent: 'center',
         margin: 'auto',
+        width: 'fit-content',
         '& > :not(style)': {
           m: 1,
           width: 275,

@@ -22,7 +22,7 @@ export const HowItWorksComp: FC = () => {
     }
   ];
   return <>
-    <div className="text-2xl font-bold mt-10 mb-3">How it works</div>
+    <div className="text-2xl font-bold mt-10 mb-3 text-center">How it works</div>
     <div className="ml-2">
       <p className="mb-3">
         We are fully qualified and Gas Safe Registered with an Excellent First-Time Fix Rate, so you can rely on us to get your boiler issues resolved in no time.

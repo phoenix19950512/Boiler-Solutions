@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import { common } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
-import { FreeAskQuestions } from '../../../components/freequestions';
-import { FreeAskQuestionType } from '../../../models/free-ask-question';  
-import { WhyChooseUsComp } from '../../../components/why-choose-us';
-import { HowItWorksComp } from '../../../components/how-it-works';
-import { OfferLinksComp } from '../../../components/offer-links';
-  
+import { FreeAskQuestions } from '../../components/freequestions';
+import { FreeAskQuestionType } from '../../models/free-ask-question';
+import { WhyChooseUsComp } from '../../components/why-choose-us';
+import { HowItWorksComp } from '../../components/how-it-works';
+import { OfferLinksComp } from '../../components/offer-links';
+import { EnquireToday } from '../../components/enquire-today';
+
 export const BoilerRepaire: FC = () => {
   const questions1: FreeAskQuestionType[] = [
     {
@@ -183,15 +184,7 @@ export const BoilerRepaire: FC = () => {
       <div>
         <FreeAskQuestions questions={questions2} />
       </div>
-      <div className="text-lg font-bold mt-10 mb-3">Enquire today</div>
-      <div className="mb-3">
-        For a no obligation quote please call us today on <Link className='text-blue-400 hover:underline' to='tel:+441316699993'>0131 669 9993</Link> or complete the form below.
-      </div>
-      <div className="mb-3">
-        <b>We repair and service every make and model of boiler including </b>
-        Alpha - Ariston - Biasi - Baxi - Chaffoteaux - Forroli - Gledhill - Glowworm - Halstead - Heatline - Main - Ideal - Potterton - Ravenheat - Range - Remeha - Sime - Vaillant - Vokera - Viessmann - Worcester ... and many more.
-      </div>
-      <div className="mb-3"><img className='m-auto' src="/media/images/logo.png" alt="Logo" style={{ height: '45px' }} /></div>
+      <EnquireToday />
     </>
   )
 }
