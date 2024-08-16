@@ -1,0 +1,43 @@
+.offer-link {
+  display: flex;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border-width: 3px;
+  border-style: solid;
+  flex-direction: column;
+  transition: .3s;
+
+  .offer-icon {
+    display: flex;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 4.5rem;
+    line-height: 1;
+    flex-grow: 1;
+  }
+
+  .offer-main {
+    display: none;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-grow: 1;
+  }
+
+  &:hover {
+    background-color: white;
+
+    .offer-icon {
+      display: none;
+    }
+    .offer-main {
+      display: flex;
+    }
+  }
+}
