@@ -6,7 +6,7 @@ import {
   FormGroup,
   FormControlLabel,
 } from "@mui/material";
-import { common } from '@mui/material/colors';
+import { cyan } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import { FreeAskQuestions } from '../../components/freequestions';
 import { FreeAskQuestionType } from '../../models/free-ask-question';
@@ -14,6 +14,7 @@ import { WhyChooseUsComp } from '../../components/why-choose-us';
 import { HowItWorksComp } from '../../components/how-it-works';
 import { OfferLinksComp } from '../../components/offer-links';
 import { EnquireToday } from '../../components/enquire-today';
+import { MyLink } from '../../components/link';
 
 export const BoilerRepaire: FC = () => {
   const questions1: FreeAskQuestionType[] = [
@@ -58,25 +59,17 @@ export const BoilerRepaire: FC = () => {
 
   return (
     <>
-      <div className='w-full text-4xl font-serif my-10 text-center'>We Take Pride In Our Workmanship</div>
-      {/* <div className="flex flex-col">
-        <div className="flex w-96 bg-white p-1">
-          <input type="text" className="flex flex-1 px-3 py-2 text-xl text-black border-0 focus-visible:outline-none" placeholder='Your post code : le17' />
-          <div className="flex">
-            <button className='bg-purple-700 px-3 border border-purple-900 hover:bg-purple-800 duration-300' onClick={() => navigate('book')}>
-              <HiArrowRight />
-            </button>
+      <div className="flex flex-col px-5 md:px-20 relative bg-indigo-950 text-white">
+        <div className="flex flex-col select-none my-0 w-full pt-8 lg:w-1/2 items-center z-10">
+          <div className='w-full text-4xl font-bold my-10 text-center italic font-serif' style={{ textShadow: 'rgba(255, 255, 255, 0.7) 1px 2.5px 6px' }}>
+            We Take Pride In Our Workmanship
           </div>
-        </div>
-      </div> */}
-      <div className="flex my-auto w-full">
-        <div className="flex flex-col m-auto mb-0 select-none">
           <FormGroup>
             <FormControlLabel
               className='my-2'
               checked={true}
               onChange={() => { }}
-              control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
+              control={<Checkbox sx={{ '&.Mui-checked': { color: cyan['A400'] } }} />}
               label={<div>
                 <div className='font-bold'>Price by the job - not by the hour</div>
                 <div className='text-sm'>We will give you a quote before starting work,<br />ensuring you a complete peace of mind</div>
@@ -86,21 +79,17 @@ export const BoilerRepaire: FC = () => {
               className='my-2'
               checked={true}
               onChange={() => { }}
-              control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
+              control={<Checkbox sx={{ '&.Mui-checked': { color: cyan['A400'] } }} />}
               label={<div>
                 <div className='font-bold'>Same Day Services</div>
                 <div className='text-sm'>If you require our services fast, we will<br />to be there on the same day!</div>
               </div>}
             />
-          </FormGroup>
-        </div>
-        <div className="flex flex-col m-auto mb-0 select-none">
-          <FormGroup>
             <FormControlLabel
               className='my-2'
               checked={true}
               onChange={() => { }}
-              control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
+              control={<Checkbox sx={{ '&.Mui-checked': { color: cyan['A400'] } }} />}
               label={<div>
                 <div className='font-bold'>12 - Month Guarantee</div>
                 <div className='text-sm'>We offer 12 - month parts and labour guarantee<br />on all our work</div>
@@ -110,78 +99,81 @@ export const BoilerRepaire: FC = () => {
               className='my-2'
               checked={true}
               onChange={() => { }}
-              control={<Checkbox sx={{ color: common.white, '&.Mui-checked': { color: common.white } }} />}
+              control={<Checkbox sx={{ '&.Mui-checked': { color: cyan['A400'] } }} />}
               label={<div>
                 <div className='font-bold'>Upfront Fixed Pricing</div>
                 <div className='text-sm'>We provide an upfront quote before proceeding<br />with no hidden fees!</div>
               </div>}
             />
           </FormGroup>
+          <div className="w-full mx-auto my-2 text-end font-serif italic px-2 lg:px-10">
+            <MyLink className='font-serif text-yellow-200 hover:text-yellow-300 before:bg-yellow-200' to='/book'>Book a visit online now</MyLink>
+          </div>
         </div>
+        <div className="absolute right-0 overflow-hidden h-full top-0 w-1/2 bg-no-repeat bg-cover bg-center bg-[url('/public/media/images/main-Header.png')]" />
       </div>
-      <div className="w-full font-serif text-end text-blue-400 hover:underline italic">
-        <Link to='./book'>Book a visit online now</Link>
-      </div>
-      <div className="text-3xl font-bold text-center my-10">Expert in Gas Boiler Repairs</div>
-      <p className="text-lg font-bold mb-3">
-        At AF Boiler Solutions, we specialise in swift and reliable gas boiler repairs to ensure your system is back up and running in no time.
-      </p>
-      <p className="text-lg font-bold mb-3">
-        Our seasoned engineers have extensive experience with all makes and models of boilers, so you can count on us to efficiently diagnose and fix any issue.
-        We pride ourselves on offering affordable rates and transparent quotes, ensuring you know exactly what to expect:
-      </p>
-      <ul className="mb-3 list-disc ml-8">
-        <li>Complex electrical faults: accurate diagnostics</li>
-        <li>Leaking boiler that needs urgent attention</li>
-        <li>Intermittent faults</li>
-        <li>Components replacement</li>
-        <li>Programmers: Room Thermostats</li>
-      </ul>
-      <p className="text-lg font-bold mb-3">
-        Trust us for top-notch workmanship and outstanding service every time.
-      </p>
-      <div className="text-center font-bold mb-3">
-        <Button variant="contained" color="secondary">Request Callback</Button>
-      </div>
-      <div>
-        <Alert variant="filled" severity="error">
-          Don&apos;t let boilder issues Disrupt your Life any longer<br />
-          Experience the Convenience and Expertise of AF Boiler Solutions:
-        </Alert>
-      </div>
-      <div className="my-3">
+      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+        <div className="text-4xl font-bold text-center my-10 font-serif italic">Expert in Gas Boiler Repairs</div>
+        <p className="text-lg font-bold mb-3">
+          At AF Boiler Solutions, we specialise in swift and reliable gas boiler repairs to ensure your system is back up and running in no time.
+        </p>
+        <p className="text-lg font-bold mb-3">
+          Our seasoned engineers have extensive experience with all makes and models of boilers, so you can count on us to efficiently diagnose and fix any issue.
+          We pride ourselves on offering affordable rates and transparent quotes, ensuring you know exactly what to expect:
+        </p>
+        <ul className="mb-3 list-disc ml-8">
+          <li>Complex electrical faults: accurate diagnostics</li>
+          <li>Leaking boiler that needs urgent attention</li>
+          <li>Intermittent faults</li>
+          <li>Components replacement</li>
+          <li>Programmers: Room Thermostats</li>
+        </ul>
+        <p className="text-lg font-bold mb-3">
+          Trust us for top-notch workmanship and outstanding service every time.
+        </p>
+        <div className="text-center font-bold mb-3">
+          <Button variant="contained" color="secondary">Request Callback</Button>
+        </div>
+        <div className='mb-3'>
+          <Alert variant="filled" severity="error">
+            Don&apos;t let boilder issues Disrupt your Life any longer<br />
+            Experience the Convenience and Expertise of AF Boiler Solutions:
+          </Alert>
+        </div>
         <FreeAskQuestions questions={questions1} />
       </div>
       <HowItWorksComp />
-      <div className="text-2xl font-bold mt-10 mb-3">Call out cost</div>
-      <div className="ml-2">
-        Get an instant price quote and book the job at the same time by using our online tool.
-        <Link className='italic text-blue-400 mx-2 hover:underline' to='#'>Get Instant Price and book online now.</Link>
-        Or, if you prefer, complete the process over the phone or through our <Link className='italic text-blue-400 hover:underline' to='#'>Callback</Link> feature.
-        <p className="my-5 font-bold">How it Works:</p>
-        <p className='mb-3'>
-          <b>Initial Assessment:</b> We evaluate your requirements over the phone.
-          Occasionally, we may ask you to send pictures via WhatsApp for a more accurate assessment.
-          Based on this evaluation, we will provide you with a quote.
-        </p>
-        <p className='mb-3'>
-          <b>Fixed Price Quotes:</b> Our quotes are not based on an hourly rate.
-          The price we provide is a fixed, one-time charge that includes both diagnostics and repair, if possible, during the same visit without requiring additional parts.
-          If we have the necessary part in our van, we will give you a quote to complete the job at that time.
-        </p>
-        <p className='mb-3'>
-          <b>Parts Required:</b> If your boiler cannot be fixed during the initial visit due to a more complex issue or the need for parts we don&apos;t have on hand, the engineer will provide you with a quote, usually on the same day, detailing the repair cost.
-          Once you accept the quote over the phone, we will schedule a return visit immediately, aiming to return the next day.
-        </p>
-      </div>
-      <div className="text-2xl font-bold mt-10 mb-3">Guarantee</div>
-      <div className="ml-2">
-        All boiler parts we supply are covered by a minimum 12 month guarantee which means that if they fail within that time we&apos;ll replace them completely free of charge.
+      <div className="flex flex-col px-10 lg:px-20">
+        <div className="text-3xl font-bold text-center mt-10 mb-3">Call out cost</div>
+        <div className="ml-2">
+          Get an instant price quote and book the job at the same time by using our online tool.
+          <Link className='italic text-blue-600 mx-2 hover:underline' to='/book'>Get Instant Price and book online now.</Link>
+          Or, if you prefer, complete the process over the phone or through our <Link className='italic text-blue-600 hover:underline' to='#'>Callback</Link> feature.
+          <p className="text-xl my-5 font-bold">How it Works:</p>
+          <p className='mb-3'>
+            <b>Initial Assessment:</b> We evaluate your requirements over the phone.
+            Occasionally, we may ask you to send pictures via WhatsApp for a more accurate assessment.
+            Based on this evaluation, we will provide you with a quote.
+          </p>
+          <p className='mb-3'>
+            <b>Fixed Price Quotes:</b> Our quotes are not based on an hourly rate.
+            The price we provide is a fixed, one-time charge that includes both diagnostics and repair, if possible, during the same visit without requiring additional parts.
+            If we have the necessary part in our van, we will give you a quote to complete the job at that time.
+          </p>
+          <p className='mb-3'>
+            <b>Parts Required:</b> If your boiler cannot be fixed during the initial visit due to a more complex issue or the need for parts we don&apos;t have on hand, the engineer will provide you with a quote, usually on the same day, detailing the repair cost.
+            Once you accept the quote over the phone, we will schedule a return visit immediately, aiming to return the next day.
+          </p>
+          <p className="text-xl font-bold mt-5 mb-3">Guarantee:</p>
+          <p className="ml-2 mb-8">
+            All boiler parts we supply are covered by a minimum 12 month guarantee which means that if they fail within that time we&apos;ll replace them completely free of charge.
+          </p>
+        </div>
       </div>
       <OfferLinksComp />
       <WhyChooseUsComp />
-      <div className="text-2xl font-bold my-8">Frequently Asked Questions</div>
-      <div>
+      <div className="flex flex-col px-10 lg:px-20 pb-5 bg-cyan-50">
+        <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
         <FreeAskQuestions questions={questions2} />
       </div>
       <EnquireToday />

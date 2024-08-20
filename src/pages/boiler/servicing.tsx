@@ -46,30 +46,32 @@ export const BoilerService: FC = () => {
 
   return (
     <>
-      <div className='w-full text-4xl font-serif my-10 text-center'>
-        Boiler Service
-      </div>
-      <p className="text-lg mb-3">
-        Having your boiler serviced regularly by our professional engineers ensures your boiler's efficiency and safety.
-      </p>
-      <p className="text-lg mb-3">
-        Our fully qualified team with years of experience offers reliable and affordable service.&nbsp;
-        Annual servicing of your gas boiler as recommended by the manufacturers ensures optimal performance and safety. An efficient boiler not only lowers your gas consumption and bills but is also more environmentally friendly.
-      </p>
-      <p className="text-lg mb-3">
-        If we find a minor fault whilst conducting your boiler service, which can be fixed within a service timeframe, we will complete such repair at no additional cost.
-      </p>
-      <p className="text-lg mb-3">
-        AF Boiler Solutions offers an annual boiler service for all makes and types of boilers at competitive rates.
-      </p>
-      <div className="text-center font-bold mb-3">
-        <Button variant="contained" color="secondary">Request Callback</Button>
+      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+        <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
+          Boiler Service
+        </div>
+        <p className="text-lg mb-3">
+          Having your boiler serviced regularly by our professional engineers ensures your boiler's efficiency and safety.
+        </p>
+        <p className="text-lg mb-3">
+          Our fully qualified team with years of experience offers reliable and affordable service.&nbsp;
+          Annual servicing of your gas boiler as recommended by the manufacturers ensures optimal performance and safety. An efficient boiler not only lowers your gas consumption and bills but is also more environmentally friendly.
+        </p>
+        <p className="text-lg mb-3">
+          If we find a minor fault whilst conducting your boiler service, which can be fixed within a service timeframe, we will complete such repair at no additional cost.
+        </p>
+        <p className="text-lg mb-3">
+          AF Boiler Solutions offers an annual boiler service for all makes and types of boilers at competitive rates.
+        </p>
+        <div className="text-center font-bold mb-3">
+          <Button variant="contained" color="secondary">Request Callback</Button>
+        </div>
       </div>
       <HowItWorksComp />
       <OfferLinksComp />
       <WhyChooseUsComp />
-      <div className="text-2xl font-bold my-8">Frequently Asked Questions</div>
-      <div>
+      <div className='flex flex-col px-10 pb-5 bg-cyan-50 lg:px-20'>
+        <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
         <FreeAskQuestions questions={questions} />
       </div>
       <EnquireToday />

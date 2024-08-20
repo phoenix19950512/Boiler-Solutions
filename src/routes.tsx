@@ -17,12 +17,15 @@ import { ToiletRepairs } from './pages/plumbing/toilet-repairs';
 import { CookerOvenRepair } from './pages/gas-cooker-oven/cooker-oven-repair';
 import { CookerOvenInstallation } from './pages/gas-cooker-oven/cooker-oven-install';
 import { HomePage } from './pages/home';
+import { BookPage } from './pages/book';
+import { LandLordsCertificationServices } from './pages/landlords/certification-service';
 
 export const AppRoutes: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<BodyComponent><HomePage /></BodyComponent>} />
+        <Route path='/book' element={<BodyComponent><BookPage /></BodyComponent>} />
         <Route path='/boiler'>
           <Route index element={<Navigate to='repair' />} />
           <Route path='repair' element={<BodyComponent><BoilerRepaire /></BodyComponent>} />
@@ -49,7 +52,7 @@ export const AppRoutes: FC = () => {
         </Route>
         <Route path='/landlords'>
           <Route index element={<Navigate to='certification-service' />} />
-          <Route path='certification-service' element={<BodyComponent><PlumbingRepairReplace /></BodyComponent>} />
+          <Route path='certification-service' element={<BodyComponent><LandLordsCertificationServices /></BodyComponent>} />
         </Route>
         <Route path='/gas-cooker-oven'>
           <Route index element={<Navigate to='cooker-oven-repair' />} />
