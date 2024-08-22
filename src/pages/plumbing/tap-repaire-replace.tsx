@@ -6,6 +6,7 @@ import { EnquireToday } from '../../components/enquire-today';
 import { DoDisturb } from '@mui/icons-material';
 import { PapersComponent } from '../../components/papers';
 import { PaperType } from '../../models/paper';
+import { LandingPage } from '../../components/landing';
 
 export const PlumbingRepairReplace: FC = () => {
   const papers: PaperType[] = [
@@ -57,6 +58,7 @@ export const PlumbingRepairReplace: FC = () => {
   ];
   return (
     <>
+      <LandingPage />
       <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4 leading-loose' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Got a Faulty Tap?<br />

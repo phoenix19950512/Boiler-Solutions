@@ -6,7 +6,7 @@ export const BookPage: FC = () => {
   const [postcode, setPostcode] = useState<string>('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isEndPage, setIsEndPage] = useState<boolean>(false);
-  const [isValidPostcode, setIsValidPostcode] = useState<boolean>(false);
+  const [locationNum, setLocationNum] = useState<[string, string]>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [firstOption, setFirstOption] = useState<string>('gas-boiler');
   const [plumbingOption, setPlumbingOption] = useState<string>('sink-tap-replace');
@@ -35,25 +35,25 @@ export const BookPage: FC = () => {
 
   useEffect(() => {
     if (validPostcodes.A.A.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['A', 'A']);
     } else if (validPostcodes.A.B.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['A', 'B']);
     } else if (validPostcodes.A.C.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['A', 'C']);
     } else if (validPostcodes.A.D.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['A', 'D']);
     } else if (validPostcodes.A.E.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['A', 'E']);
     } else if (validPostcodes.B.A.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['B', 'A']);
     } else if (validPostcodes.B.B.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['B', 'B']);
     } else if (validPostcodes.B.C.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['B', 'C']);
     } else if (validPostcodes.B.D.findIndex(code => code === postcode) >= 0) {
-      setIsValidPostcode(true);
+      setLocationNum(['B', 'D']);
     } else {
-      setIsValidPostcode(false);
+      setLocationNum(undefined);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postcode]);
@@ -63,8 +63,8 @@ export const BookPage: FC = () => {
       <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 bg-cyan-50 rounded-lg max-w-full justify-center">
         {currentPage === 1 && <>
           <TextField label="Please enter your postcode to see if we cover your area." type="text" variant="standard" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} className="w-full" />
-          {!!postcode && isValidPostcode && <div className="w-full text-base text-green-600">Good news! We cover your area!</div>}
-          {!!postcode && !isValidPostcode && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
+          {!!postcode && !!locationNum && <div className="w-full text-base text-green-600">Good news! We cover your area!</div>}
+          {!!postcode && !locationNum && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
         </>}
         {currentPage === 2 && <>
           <FormControl>
@@ -138,10 +138,10 @@ export const BookPage: FC = () => {
         </>}
         <div className="flex w-full max-w-96 my-4 mx-auto">
           <div className="flex flex-grow">
-            {currentPage > 1 && <Button variant="contained" onClick={() => setCurrentPage(currentPage - 1)} disabled={!postcode || !isValidPostcode}>Back</Button>}
+            {currentPage > 1 && <Button variant="contained" onClick={() => setCurrentPage(currentPage - 1)} disabled={!postcode || !locationNum}>Back</Button>}
           </div>
           <div className="flex flex-grow justify-end">
-            {!isEndPage && <Button variant="contained" onClick={() => setCurrentPage(currentPage + 1)} disabled={!postcode || !isValidPostcode || (currentPage === 6 && !bookedTime)}>Next</Button>}
+            {!isEndPage && <Button variant="contained" onClick={() => setCurrentPage(currentPage + 1)} disabled={!postcode || !locationNum || (currentPage === 6 && !bookedTime)}>Next</Button>}
           </div>
         </div>
       </div>

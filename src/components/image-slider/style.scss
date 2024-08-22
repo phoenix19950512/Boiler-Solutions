@@ -1,0 +1,18 @@
+.control-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3vw;
+  height: 80vh;
+  background: none;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.421);
+    cursor: pointer;
+    svg {
+      color: white;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { WhyChooseUsComp } from '../../components/why-choose-us';
 import { HowItWorksComp } from '../../components/how-it-works';
 import { OfferLinksComp } from '../../components/offer-links';
 import { EnquireToday } from '../../components/enquire-today';
+import { LandingPage } from '../../components/landing';
 
 export const BoilerService: FC = () => {
   const questions: FreeAskQuestionType[] = [
@@ -46,6 +47,7 @@ export const BoilerService: FC = () => {
 
   return (
     <>
+      <LandingPage />
       <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Boiler Service
