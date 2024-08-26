@@ -26,6 +26,7 @@ export const AppRoutes: FC = () => {
       <Routes>
         <Route path='/' element={<BodyComponent><HomePage /></BodyComponent>} />
         <Route path='/book' element={<BodyComponent><BookPage /></BodyComponent>} />
+        <Route path='/book/:postcode' element={<BodyComponent><BookPage /></BodyComponent>} />
         <Route path='/boiler'>
           <Route index element={<Navigate to='repair' />} />
           <Route path='repair' element={<BodyComponent><BoilerRepaire /></BodyComponent>} />

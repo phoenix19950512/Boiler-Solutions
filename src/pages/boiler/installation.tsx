@@ -6,14 +6,16 @@ import { WhyChooseUsComp } from '../../components/why-choose-us';
 import { HowItWorksComp } from '../../components/how-it-works';
 import { OfferLinksComp } from '../../components/offer-links';
 import { EnquireToday } from '../../components/enquire-today';
-import { LandingPage } from '../../components/landing';
+import { WeTakeProvide } from '../../components/we-take-pride';
+import { LandingPage } from '../../components/landingpage';
 
 export const BoilerInstall: FC = () => {
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
-        <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
+      <LandingPage title={<>Looking for a Boiler?<br />Need Help on Deciding?</>} subtitle={['Dont\'t worry our boiler experts will advise on the best boilers available for your property', 'Need a repair? Book online now']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
+        <div className='w-full text-4xl font-bold mb-10 mt-14 text-purple-800 text-center italic font-serif' style={{ textShadow: 'rgba(107, 33, 68, 0.7) 1px 2.5px 6px' }}>
           Gas Boilers Professionally Installed
         </div>
         <p className="text-lg mb-3">

@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import { CalendarComponent } from "../components/calendar";
+import { useParams } from "react-router-dom";
 
 export const BookPage: FC = () => {
   const [postcode, setPostcode] = useState<string>('');
@@ -33,6 +34,15 @@ export const BookPage: FC = () => {
     }
   }
 
+  const params = useParams();
+
+  useEffect(() => {
+    if (params && params.postcode && params.postcode !== '') {
+      const postcode = params.postcode;
+      setPostcode(postcode);
+      setCurrentPage(2);
+    }
+  }, [params]);
   useEffect(() => {
     if (validPostcodes.A.A.findIndex(code => code === postcode) >= 0) {
       setLocationNum(['A', 'A']);
@@ -60,7 +70,7 @@ export const BookPage: FC = () => {
 
   return (
     <>
-      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 bg-cyan-50 rounded-lg max-w-full justify-center">
+      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 rounded-lg max-w-full justify-center">
         {currentPage === 1 && <>
           <TextField label="Please enter your postcode to see if we cover your area." type="text" variant="standard" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} className="w-full" />
           {!!postcode && !!locationNum && <div className="w-full text-base text-green-600">Good news! We cover your area!</div>}
@@ -120,7 +130,7 @@ export const BookPage: FC = () => {
             </div>
             <div className="flex">
               <img src="/media/images/mains-water-stopcock.png" alt="Mains Stop Cock" width={130} height={200} />
-              <div className="ml-4 flex flex-col text-base max-w-80">
+              <div className="ml-4 flex flex-col text-base max-w-80 justify-center">
                 <div>The most important valve in your home is the Mains Water Stopcock!</div>
                 <div>This stopcock is always under high pressure and is the main water stop tap inside your home.</div>
               </div>

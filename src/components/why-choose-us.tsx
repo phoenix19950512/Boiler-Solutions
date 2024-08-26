@@ -31,7 +31,7 @@ export const WhyChooseUsComp: FC = () => {
       icon: <WorkspacePremium className="text-emerald-600" sx={{ fontSize: 120 }} />
     }
   ];
-  return <div className="flex flex-col px-10 bg-emerald-50">
+  return <div className="flex flex-col px-10">
     <div className="text-3xl text-center font-bold my-10">Why Choose us</div>
     <div className="mb-3">
       <PapersComponent papers={papers} />

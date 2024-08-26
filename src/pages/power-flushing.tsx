@@ -2,13 +2,15 @@ import { FC } from 'react';
 import { WhyChooseUsComp } from '../components/why-choose-us';
 import { OfferLinksComp } from '../components/offer-links';
 import { EnquireToday } from '../components/enquire-today';
-import { LandingPage } from '../components/landing';
+import { WeTakeProvide } from '../components/we-take-pride';
+import { LandingPage } from '../components/landingpage';
 
 export const PowerFlushing: FC = () => {
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+      <LandingPage title={<>Central Heating Powerflushing</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4 leading-loose' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Revitalise Your Central Heating System with Professional Power Flushing from £399* subject to system type & survey
         </div>

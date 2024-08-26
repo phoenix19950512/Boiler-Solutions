@@ -21,7 +21,7 @@ export const HowItWorksComp: FC = () => {
       description: 'An engineer will visit to diagnose and repair the isuue'
     }
   ];
-  return <div className="flex flex-col px-10 bg-cyan-50">
+  return <div className="flex flex-col px-10">
     <div className="text-3xl font-bold mt-10 mb-3 text-center italic font-serif">How it works</div>
     <div className="ml-2">
       <p className="mb-3 w-fit mx-auto">

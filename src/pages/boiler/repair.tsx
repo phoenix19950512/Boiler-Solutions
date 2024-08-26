@@ -10,7 +10,8 @@ import { WhyChooseUsComp } from '../../components/why-choose-us';
 import { HowItWorksComp } from '../../components/how-it-works';
 import { OfferLinksComp } from '../../components/offer-links';
 import { EnquireToday } from '../../components/enquire-today';
-import { LandingPage } from '../../components/landing';
+import { WeTakeProvide } from '../../components/we-take-pride';
+import { LandingPage } from '../../components/landingpage';
 
 export const BoilerRepaire: FC = () => {
   const questions1: FreeAskQuestionType[] = [
@@ -55,8 +56,9 @@ export const BoilerRepaire: FC = () => {
 
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+      <LandingPage title={<>Broken Boiler?<br />Let us handle the repair</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
         <div className="text-4xl font-bold text-center my-10 font-serif italic">Expert in Gas Boiler Repairs</div>
         <p className="text-lg font-bold mb-3">
           At AF Boiler Solutions, we specialise in swift and reliable gas boiler repairs to ensure your system is back up and running in no time.
@@ -78,6 +80,8 @@ export const BoilerRepaire: FC = () => {
         <div className="text-center font-bold mb-3">
           <Button variant="contained" color="secondary">Request Callback</Button>
         </div>
+      </div>
+      <div className="px-10 md:px-20 my-5 md:my-10">
         <div className='mb-3'>
           <Alert variant="filled" severity="error">
             Don&apos;t let boilder issues Disrupt your Life any longer<br />
@@ -116,7 +120,7 @@ export const BoilerRepaire: FC = () => {
       </div>
       <OfferLinksComp />
       <WhyChooseUsComp />
-      <div className="flex flex-col px-10 lg:px-20 pb-5 bg-cyan-50">
+      <div className="flex flex-col px-10 lg:px-20 pb-5">
         <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
         <FreeAskQuestions questions={questions2} />
       </div>

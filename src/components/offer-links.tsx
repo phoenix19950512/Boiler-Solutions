@@ -3,9 +3,9 @@ import { FC } from "react";
 import '../assets/styles.scss';
 
 export const OfferLinksComp: FC = () => {
-  return <div className="bg-indigo-100">
+  return <div>
     <div className="text-4xl font-bold mt-10 mb-8 text-center italic font-serif text-purple-950" style={{ textShadow: '0 4px 6px rgba(147, 12, 189, 0.75)' }}>We offer range of services</div>
-    <div className="flex text-lg font-bold mb-6 mx-auto w-fit text-white">
+    <div className="flex text-lg font-bold mb-6 mx-auto w-fit max-w-full px-3 text-white overflow-auto" style={{ scrollbarWidth: 'thin' }}>
       <div className="offer-link border-[#00AE93] bg-[#00AE93] hover:text-[#00AE93]">
         <div className="flex uppercase mx-auto text-center text-xl mt-4">home</div>
         <div className="offer-icon mt-4">

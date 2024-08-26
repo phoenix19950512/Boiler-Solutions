@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 
 export const EnquireToday: FC = () => {
-  return <div className="flex flex-col px-10 bg-gray-100">
+  return <div className="flex flex-col px-10">
     <div className="text-3xl font-bold mt-10 mb-8 text-center">Enquire today</div>
     <div className="flex mb-6">
       <div className="flex w-40">

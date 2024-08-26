@@ -6,7 +6,8 @@ import { EnquireToday } from '../../components/enquire-today';
 import { DoDisturb } from '@mui/icons-material';
 import { PapersComponent } from '../../components/papers';
 import { PaperType } from '../../models/paper';
-import { LandingPage } from '../../components/landing';
+import { WeTakeProvide } from '../../components/we-take-pride';
+import { LandingPage } from '../../components/landingpage';
 
 export const PlumbingRepairReplace: FC = () => {
   const papers: PaperType[] = [
@@ -58,8 +59,9 @@ export const PlumbingRepairReplace: FC = () => {
   ];
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+      <LandingPage title={<>Tap Repair &amp;<br />Replacements</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4 leading-loose' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Got a Faulty Tap?<br />
           No problem, AF Boiler Solutions cover it all.
@@ -84,7 +86,7 @@ export const PlumbingRepairReplace: FC = () => {
           Our experts have the skills and knowledge to handle it all.
         </p>
       </div>
-      <div className="flex text-base indent-4 flex-col bg-slate-50 py-5 px-10 leading-8 lg:px-20">
+      <div className="flex text-base indent-4 flex-col py-5 px-10 leading-8 lg:px-20">
         <p className="text-2xl font-bold my-3 text-center font-serif underline">
           AF Boiler Solutions: Professional Plumbing Services
         </p>
@@ -107,7 +109,7 @@ export const PlumbingRepairReplace: FC = () => {
       <HowItWorksComp />
       <OfferLinksComp />
       <WhyChooseUsComp />
-      <div className="flex flex-col px-10 bg-slate-100 lg:px-20">
+      <div className="flex flex-col px-10 lg:px-20">
         <div className="text-2xl text-center font-bold my-5 text-cyan-700">
           Common Tap Problems we Fix
         </div>

@@ -23,7 +23,7 @@ export const BodyComponent: FC<{ children: ReactNode }> = ({ children }) => {
     <ThemeProvider theme={darkTheme}>
       <div className="App">
         <Header />
-        <div ref-name='body' onScroll={checkIsTop} className="flex flex-grow flex-col w-100 p-0 text-start overflow-auto scroll-smooth" style={{ scrollbarWidth: 'thin' }}>
+        <div ref-name='body' onScroll={checkIsTop} className="flex flex-grow flex-col w-100 p-0 text-start overflow-auto scroll-smooth from-cyan-200 via-cyan-200 to-white bg-gradient-to-b" style={{ scrollbarWidth: 'thin' }}>
           <div className="flex flex-col flex-grow justify-center">{children}</div>
           <Footer />
         </div>

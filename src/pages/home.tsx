@@ -4,13 +4,15 @@ import { HowItWorksComp } from '../components/how-it-works';
 import { OfferLinksComp } from '../components/offer-links';
 import { EnquireToday } from '../components/enquire-today';
 import { MyLink } from '../components/link';
-import { LandingPage } from '../components/landing';
+import { WeTakeProvide } from '../components/we-take-pride';
+import { LandingPage } from '../components/landingpage';
 
 export const HomePage: FC = () => {
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 bg-slate-300">
+      <LandingPage title={<>Specialising in a range of Planned and reactive maintenance Services</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
         <div className="text-3xl font-bold text-center font-serif italic my-10 text-cyan-800" style={{ textShadow: '0.5px 2.5px 6px cyan' }}>Breakdowns</div>
         <p className="text-lg mb-3">
           We know how stressful it can be when your appliance stops working, not to mention the inconvenience of having no heating, hot water or cooking facilities.<br />
@@ -32,7 +34,7 @@ export const HomePage: FC = () => {
           You&apos;ll find everything under one roof at AF Boiler Solutions.
         </p>
       </div>
-      <div className="flex flex-col px-10 bg-red-50">
+      <div className="flex flex-col px-10">
         <div className="text-3xl font-bold text-center my-10 underline" style={{ textShadow: '0.5px 2.5px 6px cadetblue' }}>Plumbing Issue</div>
         <p className="text-lg mb-3">
           <b>Plumbing Services:</b> Can attend to emergencies, such as leaky tap, burst pipes, severe leaks, broken toilet, or any other plubing issues that require immediate attention.

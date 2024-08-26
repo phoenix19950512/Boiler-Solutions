@@ -8,7 +8,8 @@ import { WhyChooseUsComp } from '../../components/why-choose-us';
 import { HowItWorksComp } from '../../components/how-it-works';
 import { OfferLinksComp } from '../../components/offer-links';
 import { EnquireToday } from '../../components/enquire-today';
-import { LandingPage } from '../../components/landing';
+import { WeTakeProvide } from '../../components/we-take-pride';
+import { LandingPage } from '../../components/landingpage';
 
 export const BoilerService: FC = () => {
   const questions: FreeAskQuestionType[] = [
@@ -47,8 +48,9 @@ export const BoilerService: FC = () => {
 
   return (
     <>
-      <LandingPage />
-      <div className="flex flex-col px-10 pb-5 bg-green-50 lg:px-20">
+      <LandingPage title={<>Boiler Servicing</>} subtitle={['We service all makes and models', 'Need a repair? Book online now']} />
+      <WeTakeProvide />
+      <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Boiler Service
         </div>
@@ -72,7 +74,7 @@ export const BoilerService: FC = () => {
       <HowItWorksComp />
       <OfferLinksComp />
       <WhyChooseUsComp />
-      <div className='flex flex-col px-10 pb-5 bg-cyan-50 lg:px-20'>
+      <div className='flex flex-col px-10 pb-5 lg:px-20'>
         <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
         <FreeAskQuestions questions={questions} />
       </div>
