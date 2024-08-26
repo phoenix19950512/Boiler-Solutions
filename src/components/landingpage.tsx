@@ -1,5 +1,5 @@
 import { ArrowForward } from "@mui/icons-material";
-import { IconButton, TextField } from "@mui/material";
+import { Checkbox, FormControlLabel, FormGroup, IconButton, TextField } from "@mui/material";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { ImageSlider } from "./image-slider";
 
@@ -53,34 +53,59 @@ export const LandingPage: FC<{ title: ReactNode; subtitle: ReactNode[] }> = ({ t
   }, [postcode]);
 
   return (
-    <div className="flex flex-col md:flex-row md:px-0">
-      <div className="flex md:w-1/2 mx-10 md:px-0 pt-10 flex-col">
-        <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
+    <div className="flex flex-col md:flex-row md:px-0 bg-indigo-50">
+      <div className="flex md:w-1/2 mx-10 md:px-0 pt-10 md:pt-20 flex-col">
+        <div className='text-4xl md:text-6xl md:leading-relaxed font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           {title}
         </div>
-        <div className="flex flex-col justify-end mx-auto pt-5 pb-10 px-5 max-w-xl">
-          <div className="mb-2 font-bold text-lg text-rose-600">{subtitle[0]}</div>
-          <div className="mb-8 font-bold text-lg text-rose-600">{subtitle[1]}</div>
-          <div className="mb-5 font-bold text-lg underline">Get instant price and book a visit online now</div>
-          <div className="w-full relative">
-            <TextField label="Enter your postcode to begin" type="text" variant="outlined" className="w-full" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} />
-            <IconButton className="top-1 right-1 bottom-1" disabled={!locationNum} href={`/book/${postcode ?? ''}`} sx={{
-              backgroundColor: '#9333ea',
-              transition: '.3s',
-              borderRadius: '6px',
-              position: 'absolute',
-              paddingLeft: '12px',
-              paddingRight: '12px',
-              color: 'white',
-              '&:hover': {
-                backgroundColor: '#a855f7'
-              }
-            }}>
-              <ArrowForward color="inherit" />
-            </IconButton>
+        <div className="flex flex-col md:flex-row justify-end mx-auto pt-5 pb-16 px-5">
+          <div className="flex flex-col mr-3">
+            <div className="mb-2 font-bold text-xl text-rose-600">{subtitle[0]}</div>
+            <div className="mb-8 font-bold text-xl text-rose-600">{subtitle[1]}</div>
+            <div className="mb-5 font-bold text-xl underline">Get instant price and book a visit online now</div>
+            <div className="mb-2 font-bold text-base">Enter first section of your postcode to begin</div>
+            <div className="w-full relative">
+              <TextField label="Your post code: le17" type="text" variant="outlined" className="w-full" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} />
+              <IconButton className="top-1 right-1 bottom-1" disabled={!locationNum} href={`/book/${postcode ?? ''}`} sx={{
+                backgroundColor: '#9333ea',
+                transition: '.3s',
+                borderRadius: '6px',
+                position: 'absolute',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: '#a855f7'
+                }
+              }}>
+                <ArrowForward color="inherit" />
+              </IconButton>
+            </div>
+            {!!postcode && !!locationNum && <div className="w-full text-base font-bold text-green-600">Good news! We cover your area!</div>}
+            {!!postcode && !locationNum && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
           </div>
-          {!!postcode && !!locationNum && <div className="w-full text-base font-bold text-green-600">Good news! We cover your area!</div>}
-          {!!postcode && !locationNum && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
+          <div className="flex flex-col justify-end mt-5">
+            <FormGroup>
+              <FormControlLabel
+                checked={true}
+                onChange={() => { }}
+                control={<Checkbox />}
+                label='Price by the job - not by the hour'
+              />
+              <FormControlLabel
+                checked={true}
+                onChange={() => { }}
+                control={<Checkbox />}
+                label='12 - Month guarantee on all Repairs'
+              />
+              <FormControlLabel
+                checked={true}
+                onChange={() => { }}
+                control={<Checkbox />}
+                label='Upfront fixed pricing'
+              />
+            </FormGroup>
+          </div>
         </div>
       </div>
       <div className="flex w-full md:w-1/2 min-h-60">
