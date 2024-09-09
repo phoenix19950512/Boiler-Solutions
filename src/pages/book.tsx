@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import { CalendarComponent } from "../components/calendar";
 import { useParams } from "react-router-dom";
+import { StripeComponent } from "../components/stripe";
 
 export const BookPage: FC = () => {
   const [postcode, setPostcode] = useState<string>('');
@@ -19,8 +20,8 @@ export const BookPage: FC = () => {
       A: ['CV13', 'LE1', 'LE10', 'LE11', 'LE12', 'LE14', 'LE16', 'LE17', 'LE18', 'LE19', 'LE2', 'LE21', 'LE3', 'LE4', 'LE41', 'LE5', 'LE55', 'LE6', 'LE67', 'LE7', 'LE8', 'LE87', 'LE9', 'LE95'],
       B: ['CV10', 'CV11', 'CV12', 'CV23', 'CV7', 'CV9', 'DE12', 'LE13', 'LE15', 'LE65', 'LE94', 'NG12', 'NN6'],
       C: ['CV2', 'CV21', 'CV22', 'CV3', 'CV5', 'CV6', 'DE7', 'DE72', 'DE73', 'DE74', 'NG11', 'NN14'],
-      D: ['B46', 'B76', 'B77', 'B78', 'B79', 'CV1', 'CV32', 'CV33', 'CV4', 'CV47', 'CV8', 'DE1', 'DE11', 'DE13', 'DE14', 'DE15', 'DE2', 'DE21', 'DE22', 'DE23', 'DE24', 'DE3', 'DE6', 'DE65', 'DE99',
-        'LE95', 'NG1', 'NG10', 'NG11', 'NG12', 'NG13', 'NG14', 'NG2', 'NG20', 'NG3', 'NG32', 'NG33', 'NG4', 'NG5', 'NG7', 'NG8', 'NG80', 'NG9', 'NG90', 'NN11', 'NN14', 'NN15', 'NN16', 'NN17', 'NN18', 'NN2', 'NN3', 'NN6', 'NN7', 'PE8', 'PE9', 'WS13'],
+      D: ['B46', 'B76', 'B77', 'B78', 'B79', 'CV1', 'CV32', 'CV33', 'CV4', 'CV47', 'CV8', 'DE1', 'DE11', 'DE13', 'DE14', 'DE15', 'DE2', 'DE21', 'DE22', 'DE23', 'DE24', 'DE3', 'DE6', 'DE65', 'DE99', 'LE95', 'NG1', 'NG10',
+        'NG11', 'NG12', 'NG13', 'NG14', 'NG2', 'NG20', 'NG3', 'NG32', 'NG33', 'NG4', 'NG5', 'NG7', 'NG8', 'NG80', 'NG9', 'NG90', 'NN11', 'NN14', 'NN15', 'NN16', 'NN17', 'NN18', 'NN2', 'NN3', 'NN6', 'NN7', 'PE8', 'PE9', 'WS13'],
       E: ['B23', 'B24', 'B25', 'B26', 'B33', 'B34', 'B35', 'B36', 'B37', 'B4', 'B40', 'B42', 'B6', 'B72', 'B73', 'B74', 'B75', 'B8', 'B9', 'B91', 'B92', 'B93', 'B94', 'CV31', 'CV34', 'CV35', 'DE5', 'DE56', 'DE75', 'NG1', 'NG10',
         'NG13', 'NG14', 'NG15', 'NG16', 'NG17', 'NG2', 'NG20', 'NG23', 'NG25', 'NG3', 'NG31', 'NG32', 'NG33', 'NG4', 'NG5', 'NG6', 'NG7', 'NG8', 'NG80', 'NG9', 'NG90', 'NN1', 'NN11', 'NN15', 'NN16', 'NN17', 'NN18', 'NN2',
         'NN29', 'NN3', 'NN4', 'NN5', 'NN7', 'NN8', 'NN9', 'NN99', 'PE10', 'PE8', 'PE9', 'WS13', 'WS14', 'WS7'],
@@ -70,7 +71,7 @@ export const BookPage: FC = () => {
 
   return (
     <>
-      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 rounded-lg max-w-full justify-center">
+      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 rounded-lg max-w-full justify-center bg-white">
         {currentPage === 1 && <>
           <TextField label="Please enter your postcode to see if we cover your area." type="text" variant="standard" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} className="w-full" />
           {!!postcode && !!locationNum && <div className="w-full text-base text-green-600">Good news! We cover your area!</div>}
@@ -145,6 +146,9 @@ export const BookPage: FC = () => {
         </>}
         {currentPage === 6 && <>
           <CalendarComponent setBookedTime={setBookedTime} />
+        </>}
+        {currentPage === 7 && <>
+          <StripeComponent />
         </>}
         <div className="flex w-full max-w-96 my-4 mx-auto">
           <div className="flex flex-grow">

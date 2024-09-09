@@ -9,7 +9,7 @@ import { LandingPage } from '../../components/landingpage';
 export const GasFireService: FC = () => {
   return (
     <>
-      <LandingPage title={<>Gas Fire Service<br /><div className='font-normal'>Kepp Your Home Warm this Winter</div></>} subtitle={['', 'Needs a Repair? Book online now']} />
+      <LandingPage title={<>Gas Fire Service<br /><div className='font-normal'>Keep Your Home Warm this Winter</div></>} subtitle={['', 'Needs a Repair? Book online now']} />
       <WeTakeProvide />
       <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4 leading-loose' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>

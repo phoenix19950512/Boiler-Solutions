@@ -1,31 +1,29 @@
 import { FC } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { BodyComponent } from './layout/body';
-import { BoilerRepaire } from './pages/boiler/repair';
-import { BoilerService } from './pages/boiler/servicing';
-import { BoilerInstall } from './pages/boiler/installation';
-import { CentralHeatingRepairReplace } from './pages/central-heating/repair-replace';
-import { CentralHeatingRepair } from './pages/central-heating/repair';
-import { PlumbingRepairReplace } from './pages/plumbing/tap-repaire-replace';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NotFound } from './pages/404page';
-import { MainsWaterStopcock } from './pages/plumbing/mains-water-stopcock';
-import { PowerFlushing } from './pages/power-flushing';
-import { GasFireRepairs } from './pages/gas-fire/repair';
-import { GasFireService } from './pages/gas-fire/service';
-import { BurstPipeRepairs } from './pages/plumbing/burst-pipe-repair';
-import { ToiletRepairs } from './pages/plumbing/toilet-repairs';
-import { CookerOvenRepair } from './pages/gas-cooker-oven/cooker-oven-repair';
-import { CookerOvenInstallation } from './pages/gas-cooker-oven/cooker-oven-install';
-import { HomePage } from './pages/home';
-import { BookPage } from './pages/book';
-import { LandLordsCertificationServices } from './pages/landlords/certification-service';
+// import { BoilerRepaire } from './pages/boiler/repair';
+// import { BoilerService } from './pages/boiler/servicing';
+// import { BoilerInstall } from './pages/boiler/installation';
+// import { CentralHeatingRepairReplace } from './pages/central-heating/repair-replace';
+// import { CentralHeatingRepair } from './pages/central-heating/repair';
+// import { PlumbingRepairReplace } from './pages/plumbing/tap-repaire-replace';
+// import { MainsWaterStopcock } from './pages/plumbing/mains-water-stopcock';
+// import { PowerFlushing } from './pages/power-flushing';
+// import { GasFireRepairs } from './pages/gas-fire/repair';
+// import { GasFireService } from './pages/gas-fire/service';
+// import { BurstPipeRepairs } from './pages/plumbing/burst-pipe-repair';
+// import { ToiletRepairs } from './pages/plumbing/toilet-repairs';
+// import { CookerOvenRepair } from './pages/gas-cooker-oven/cooker-oven-repair';
+// import { CookerOvenInstallation } from './pages/gas-cooker-oven/cooker-oven-install';
+// import { BookPage } from './pages/book';
+// import { LandLordsCertificationServices } from './pages/landlords/certification-service';
 
 export const AppRoutes: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<BodyComponent><HomePage /></BodyComponent>} />
-        <Route path='/book' element={<BodyComponent><BookPage /></BodyComponent>} />
+        {/* <Route path='/' element={<BodyComponent><HomePage /></BodyComponent>} /> */}
+        {/* <Route path='/book' element={<BodyComponent><BookPage /></BodyComponent>} />
         <Route path='/book/:postcode' element={<BodyComponent><BookPage /></BodyComponent>} />
         <Route path='/boiler'>
           <Route index element={<Navigate to='repair' />} />
@@ -59,8 +57,8 @@ export const AppRoutes: FC = () => {
           <Route index element={<Navigate to='cooker-oven-repair' />} />
           <Route path='cooker-oven-repair' element={<BodyComponent><CookerOvenRepair /></BodyComponent>} />
           <Route path='cooker-oven-install' element={<BodyComponent><CookerOvenInstallation /></BodyComponent>} />
-        </Route>
-        <Route path='*' element={<BodyComponent><NotFound /></BodyComponent>} />
+        </Route> */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

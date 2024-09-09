@@ -54,17 +54,17 @@ export const LandingPage: FC<{ title: ReactNode; subtitle: ReactNode[] }> = ({ t
 
   return (
     <div className="flex flex-col md:flex-row md:px-0 bg-indigo-50">
-      <div className="flex md:w-1/2 mx-10 md:px-0 pt-10 md:pt-20 flex-col">
+      <div className="flex md:w-1/2 mx-10 md:px-0 pt-10 flex-col">
         <div className='text-4xl md:text-6xl md:leading-relaxed font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           {title}
         </div>
-        <div className="flex flex-col md:flex-row justify-end mx-auto pt-5 pb-16 px-5">
-          <div className="flex flex-col mr-3">
-            <div className="mb-2 font-bold text-xl text-rose-600">{subtitle[0]}</div>
-            <div className="mb-8 font-bold text-xl text-rose-600">{subtitle[1]}</div>
-            <div className="mb-5 font-bold text-xl underline">Get instant price and book a visit online now</div>
-            <div className="mb-2 font-bold text-base">Enter first section of your postcode to begin</div>
-            <div className="w-full relative">
+        <div className="flex flex-col md:flex-row justify-end mx-auto pt-5 pb-16 pl-5">
+          <div className="flex flex-col mr-8">
+            <div className="mb-2 font-bold text-2xl text-rose-600">{subtitle[0]}</div>
+            <div className="mb-8 font-bold text-2xl text-rose-600">{subtitle[1]}</div>
+            <div className="mb-5 font-bold text-2xl underline">Get instant price and book a visit online now</div>
+            <div className="mb-2 text-lg">Enter first section of your postcode to begin</div>
+            <div className="w-full text-lg relative">
               <TextField label="Your post code: le17" type="text" variant="outlined" className="w-full" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} />
               <IconButton className="top-1 right-1 bottom-1" disabled={!locationNum} href={`/book/${postcode ?? ''}`} sx={{
                 backgroundColor: '#9333ea',
@@ -84,25 +84,28 @@ export const LandingPage: FC<{ title: ReactNode; subtitle: ReactNode[] }> = ({ t
             {!!postcode && !!locationNum && <div className="w-full text-base font-bold text-green-600">Good news! We cover your area!</div>}
             {!!postcode && !locationNum && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
           </div>
-          <div className="flex flex-col justify-end mt-5">
+          <div className="flex text-nowrap flex-col justify-end mt-5">
             <FormGroup>
               <FormControlLabel
                 checked={true}
                 onChange={() => { }}
                 control={<Checkbox />}
                 label='Price by the job - not by the hour'
+                sx={{ '& .MuiTypography-root': { fontSize: 22 } }}
               />
               <FormControlLabel
                 checked={true}
                 onChange={() => { }}
                 control={<Checkbox />}
                 label='12 - Month guarantee on all Repairs'
+                sx={{ '& .MuiTypography-root': { fontSize: 22 } }}
               />
               <FormControlLabel
                 checked={true}
                 onChange={() => { }}
                 control={<Checkbox />}
                 label='Upfront fixed pricing'
+                sx={{ '& .MuiTypography-root': { fontSize: 22 } }}
               />
             </FormGroup>
           </div>
