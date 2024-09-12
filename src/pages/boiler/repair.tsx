@@ -1,18 +1,18 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { FreeAskQuestionType } from '../../models/free-ask-question';
 import { LandingPage } from '../../common/Loader/Main/landingpage';
 import { WeTakeProvide } from '../../common/Loader/Main/we-take-pride';
 import { HowItWorksComp } from '../../common/Loader/Main/how-it-works';
 import { OfferLinksComp } from '../../common/Loader/Main/offer-links';
 import { WhyChooseUsComp } from '../../common/Loader/Main/why-choose-us';
 import { EnquireToday } from '../../common/Loader/Main/enquire-today';
-import { FreeAskQuestions } from '../../common/Loader/Main/freequestions';
 import { ImageSlider } from '../../common/Image Slider';
+import Accordion from '../../components/Accordian';
+import { AccordianItemType } from '../../models/accordian';
 
 
 export const BoilerRepaire: FC = () => {
-  const questions1: FreeAskQuestionType[] = [
+  const questions1: AccordianItemType[] = [
     {
       title: 'Trusted Professionals',
       description: 'Fully qualified an dapproved members of the Gas Safe Register, with over 15 years of experience in fast, effective boiler and central heating repairs.'
@@ -30,7 +30,7 @@ export const BoilerRepaire: FC = () => {
       description: 'All boiler repairs come with a full 12-month parts and labour guarantee.'
     }
   ];
-  const questions2: FreeAskQuestionType[] = [
+  const questions2: AccordianItemType[] = [
     {
       title: 'I have a conventional System do you repair them?',
       description: <><b>Convenentional System:</b> You have a cylinder usually located in an airing cupboard; boiler generally tends to be either in the bedroom or even in any other part of the house.
@@ -105,7 +105,7 @@ export const BoilerRepaire: FC = () => {
             </h5>
           </div>
         </div>
-        <FreeAskQuestions questions={questions1} />
+        <Accordion items={questions1} />
       </div>
       <HowItWorksComp />
       <div className="flex flex-col px-10 lg:px-20">
@@ -139,7 +139,7 @@ export const BoilerRepaire: FC = () => {
       <WhyChooseUsComp />
       <div className="flex flex-col px-10 lg:px-20 pb-5">
         <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
-        <FreeAskQuestions questions={questions2} />
+        <Accordion items={questions2} />
       </div>
       <EnquireToday />
     </>

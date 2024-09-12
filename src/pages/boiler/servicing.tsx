@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import { FreeAskQuestionType } from '../../models/free-ask-question';
 import { LandingPage } from '../../common/Loader/Main/landingpage';
 import { WeTakeProvide } from '../../common/Loader/Main/we-take-pride';
 import { HowItWorksComp } from '../../common/Loader/Main/how-it-works';
 import { OfferLinksComp } from '../../common/Loader/Main/offer-links';
 import { WhyChooseUsComp } from '../../common/Loader/Main/why-choose-us';
 import { EnquireToday } from '../../common/Loader/Main/enquire-today';
-import { FreeAskQuestions } from '../../common/Loader/Main/freequestions';
 import { ImageSlider } from '../../common/Image Slider';
+import { AccordianItemType } from '../../models/accordian';
+import Accordion from '../../components/Accordian';
 
 export const BoilerService: FC = () => {
-  const questions: FreeAskQuestionType[] = [
+  const questions: AccordianItemType[] = [
     {
       title: 'When should I get my boiler serviced?',
       description: <>
@@ -77,7 +77,7 @@ export const BoilerService: FC = () => {
       <WhyChooseUsComp />
       <div className='flex flex-col px-10 pb-5 lg:px-20'>
         <div className="text-2xl font-bold my-8 font-serif italic text-cyan-950" style={{ textShadow: '0 3px 6px rgba(34, 211, 238, 0.75)' }}>Frequently Asked Questions</div>
-        <FreeAskQuestions questions={questions} />
+        <Accordion items={questions} />
       </div>
       <EnquireToday />
     </>
