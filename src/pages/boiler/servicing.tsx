@@ -1,15 +1,13 @@
 import { FC } from 'react';
-import {
-  Button,
-} from "@mui/material";
-import { FreeAskQuestions } from '../../components/freequestions';
 import { FreeAskQuestionType } from '../../models/free-ask-question';
-import { WhyChooseUsComp } from '../../components/why-choose-us';
-import { HowItWorksComp } from '../../components/how-it-works';
-import { OfferLinksComp } from '../../components/offer-links';
-import { EnquireToday } from '../../components/enquire-today';
-import { WeTakeProvide } from '../../components/we-take-pride';
-import { LandingPage } from '../../components/landingpage';
+import { LandingPage } from '../../common/Loader/Main/landingpage';
+import { WeTakeProvide } from '../../common/Loader/Main/we-take-pride';
+import { HowItWorksComp } from '../../common/Loader/Main/how-it-works';
+import { OfferLinksComp } from '../../common/Loader/Main/offer-links';
+import { WhyChooseUsComp } from '../../common/Loader/Main/why-choose-us';
+import { EnquireToday } from '../../common/Loader/Main/enquire-today';
+import { FreeAskQuestions } from '../../common/Loader/Main/freequestions';
+import { ImageSlider } from '../../common/Image Slider';
 
 export const BoilerService: FC = () => {
   const questions: FreeAskQuestionType[] = [
@@ -50,6 +48,9 @@ export const BoilerService: FC = () => {
     <>
       <LandingPage title={<>Boiler Servicing</>} subtitle={['We service all makes and models', 'Need a repair? Book online now']} />
       <WeTakeProvide />
+      <div className="flex w-full min-h-60">
+        <ImageSlider />
+      </div>
       <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Boiler Service
@@ -68,7 +69,7 @@ export const BoilerService: FC = () => {
           AF Boiler Solutions offers an annual boiler service for all makes and types of boilers at competitive rates.
         </p>
         <div className="text-center font-bold mb-3">
-          <Button variant="contained" color="secondary">Request Callback</Button>
+          <button type='button' className='bg-primary px-5 py-3 rounded text-white duration-300 hover:opacity-80'>Request Callback</button>
         </div>
       </div>
       <HowItWorksComp />

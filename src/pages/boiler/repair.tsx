@@ -1,17 +1,15 @@
 import { FC } from 'react';
-import {
-  Alert,
-  Button,
-} from "@mui/material";
 import { Link } from 'react-router-dom';
-import { FreeAskQuestions } from '../../components/freequestions';
 import { FreeAskQuestionType } from '../../models/free-ask-question';
-import { WhyChooseUsComp } from '../../components/why-choose-us';
-import { HowItWorksComp } from '../../components/how-it-works';
-import { OfferLinksComp } from '../../components/offer-links';
-import { EnquireToday } from '../../components/enquire-today';
-import { WeTakeProvide } from '../../components/we-take-pride';
-import { LandingPage } from '../../components/landingpage';
+import { LandingPage } from '../../common/Loader/Main/landingpage';
+import { WeTakeProvide } from '../../common/Loader/Main/we-take-pride';
+import { HowItWorksComp } from '../../common/Loader/Main/how-it-works';
+import { OfferLinksComp } from '../../common/Loader/Main/offer-links';
+import { WhyChooseUsComp } from '../../common/Loader/Main/why-choose-us';
+import { EnquireToday } from '../../common/Loader/Main/enquire-today';
+import { FreeAskQuestions } from '../../common/Loader/Main/freequestions';
+import { ImageSlider } from '../../common/Image Slider';
+
 
 export const BoilerRepaire: FC = () => {
   const questions1: FreeAskQuestionType[] = [
@@ -58,6 +56,9 @@ export const BoilerRepaire: FC = () => {
     <>
       <LandingPage title={<>Broken Boiler?<br />Let us handle the repair</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
       <WeTakeProvide />
+      <div className="flex w-full min-h-60">
+        <ImageSlider />
+      </div>
       <div className="flex flex-col px-10 md:px-20">
         <div className="text-4xl font-bold text-center my-10 font-serif italic">Expert in Gas Boiler Repairs</div>
         <p className="text-lg font-bold mb-3">
@@ -78,15 +79,31 @@ export const BoilerRepaire: FC = () => {
           Trust us for top-notch workmanship and outstanding service every time.
         </p>
         <div className="text-center font-bold mb-3">
-          <Button variant="contained" color="secondary">Request Callback</Button>
+          <button type='button' className='bg-primary px-5 py-3 rounded text-white duration-300 hover:opacity-80'>Request Callback</button>
         </div>
       </div>
       <div className="px-10 md:px-20 my-5 md:my-10">
-        <div className='mb-3'>
-          <Alert variant="filled" severity="error">
-            Don&apos;t let boilder issues Disrupt your Life any longer<br />
-            Experience the Convenience and Expertise of AF Boiler Solutions:
-          </Alert>
+        <div className="flex w-full mb-5 border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
+          <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
+            <svg
+              width="19"
+              height="16"
+              viewBox="0 0 19 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.50493 16H17.5023C18.6204 16 19.3413 14.9018 18.8354 13.9735L10.8367 0.770573C10.2852 -0.256858 8.70677 -0.256858 8.15528 0.770573L0.156617 13.9735C-0.334072 14.8998 0.386764 16 1.50493 16ZM10.7585 12.9298C10.7585 13.6155 10.2223 14.1433 9.45583 14.1433C8.6894 14.1433 8.15311 13.6155 8.15311 12.9298V12.9015C8.15311 12.2159 8.6894 11.688 9.45583 11.688C10.2223 11.688 10.7585 12.2159 10.7585 12.9015V12.9298ZM8.75236 4.01062H10.2548C10.6674 4.01062 10.9127 4.33826 10.8671 4.75288L10.2071 10.1186C10.1615 10.5049 9.88572 10.7455 9.50142 10.7455C9.11929 10.7455 8.84138 10.5028 8.79579 10.1186L8.13574 4.75288C8.09449 4.33826 8.33984 4.01062 8.75236 4.01062Z"
+                fill="#FFF"
+              ></path>
+            </svg>
+          </div>
+          <div className="w-full">
+            <h5 className="mb-3 font-semibold text-[#B45454]">
+              Don&apos;t let boilder issues Disrupt your Life any longer<br />
+              Experience the Convenience and Expertise of AF Boiler Solutions:
+            </h5>
+          </div>
         </div>
         <FreeAskQuestions questions={questions1} />
       </div>
@@ -95,8 +112,8 @@ export const BoilerRepaire: FC = () => {
         <div className="text-3xl font-bold text-center mt-10 mb-3">Call out cost</div>
         <div className="ml-2">
           Get an instant price quote and book the job at the same time by using our online tool.
-          <Link className='italic text-blue-600 mx-2 hover:underline' to='/book'>Get Instant Price and book online now.</Link>
-          Or, if you prefer, complete the process over the phone or through our <Link className='italic text-blue-600 hover:underline' to='#'>Callback</Link> feature.
+          <Link className='italic text-meta-5 mx-2 hover:underline' to='/book'>Get Instant Price and book online now.</Link>
+          Or, if you prefer, complete the process over the phone or through our <Link className='italic text-meta-5 hover:underline' to='#'>Callback</Link> feature.
           <p className="text-xl my-5 font-bold">How it Works:</p>
           <p className='mb-3'>
             <b>Initial Assessment:</b> We evaluate your requirements over the phone.

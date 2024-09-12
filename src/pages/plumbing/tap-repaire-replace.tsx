@@ -1,13 +1,14 @@
 import { FC } from 'react';
-import { WhyChooseUsComp } from '../../components/why-choose-us';
-import { HowItWorksComp } from '../../components/how-it-works';
-import { OfferLinksComp } from '../../components/offer-links';
-import { EnquireToday } from '../../components/enquire-today';
-import { DoDisturb } from '@mui/icons-material';
-import { PapersComponent } from '../../components/papers';
+import { NoSymbolIcon } from '@heroicons/react/24/solid';
 import { PaperType } from '../../models/paper';
-import { WeTakeProvide } from '../../components/we-take-pride';
-import { LandingPage } from '../../components/landingpage';
+import { LandingPage } from '../../common/Loader/Main/landingpage';
+import { WeTakeProvide } from '../../common/Loader/Main/we-take-pride';
+import { OfferLinksComp } from '../../common/Loader/Main/offer-links';
+import { WhyChooseUsComp } from '../../common/Loader/Main/why-choose-us';
+import { EnquireToday } from '../../common/Loader/Main/enquire-today';
+import { HowItWorksComp } from '../../common/Loader/Main/how-it-works';
+import { PapersComponent } from '../../common/Loader/Main/papers';
+import { ImageSlider } from '../../common/Image Slider';
 
 export const PlumbingRepairReplace: FC = () => {
   const papers: PaperType[] = [
@@ -61,6 +62,9 @@ export const PlumbingRepairReplace: FC = () => {
     <>
       <LandingPage title={<>Tap Repair &amp;<br />Replacements</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
       <WeTakeProvide />
+      <div className="flex w-full min-h-60">
+        <ImageSlider />
+      </div>
       <div className="flex flex-col px-10 md:px-20">
         <div className='text-4xl font-bold text-center text-green-950 font-serif italic mt-10 mb-4 leading-loose' style={{ textShadow: '0 3px 6px rgba(74, 222, 128, 0.75)' }}>
           Got a Faulty Tap?<br />
@@ -115,18 +119,18 @@ export const PlumbingRepairReplace: FC = () => {
         </div>
         <div className="flex mb-10 justify-center">
           <div className="flex flex-col mr-20">
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Dripping tap</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Leaking tap</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Stiff tap</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Loose/Wobbly tap</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Broken tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Dripping tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Leaking tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Stiff tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Loose/Wobbly tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Broken tap</div>
           </div>
           <div className="flex flex-col">
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Rusted tap</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Tap won&apos;t turn off</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Tap won&apos;t turn on</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Tap continuously running</div>
-            <div className='text-nowrap my-0.5'><DoDisturb color='error' /> Noisy/Loud tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Rusted tap</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Tap won&apos;t turn off</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Tap won&apos;t turn on</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Tap continuously running</div>
+            <div className='text-nowrap my-0.5'><NoSymbolIcon color='error' /> Noisy/Loud tap</div>
           </div>
         </div>
       </div>

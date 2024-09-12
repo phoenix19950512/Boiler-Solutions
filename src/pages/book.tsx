@@ -1,8 +1,35 @@
 import { FC, useEffect, useState } from "react";
-import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
-import { CalendarComponent } from "../components/calendar";
 import { useParams } from "react-router-dom";
-import { StripeComponent } from "../components/stripe";
+import { Radio, RadioGroup } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { CalendarComponent } from "../common/Loader/Main/calendar";
+
+const firstOptions = [
+  { value: 'gas-boiler', label: 'Gas Boiler' },
+  { value: 'central-heating', label: 'Central Heating' },
+  { value: 'plumbing', label: 'Plumbing' },
+  { value: 'gas-fires', label: 'Gas Fires' },
+  { value: 'cookers-oven', label: 'Gas Cookers & Oven' },
+  { value: 'landlords', label: 'Landlords Gas Certificates' },
+  { value: 'power-flush', label: 'Power Flush' },
+  { value: 'other', label: 'Other' },
+];
+const plumbingOptions = [
+  { value: 'sink-tap-replace', label: 'Kitchen Sink tap Replacement' },
+  { value: 'basin-tap-replace', label: 'Basin Tap Replacement' },
+  { value: 'bath-tap-replace', label: 'Bath tap needs replacement bath panel must to be removable' },
+  { value: 'sink-tap-repair', label: 'Sink tap,Basin tap or Bath dripping tap needs a repair' },
+  { value: 'shower-install', label: 'Shower, Washing Machine, etc. Needs installing' },
+  { value: 'burst-pipe', label: 'Burst Pipe repair' },
+  { value: 'mains-water-stopcock', label: 'Mains water Stopcock' },
+  { value: 'toilet-problem', label: 'I have a problem with my toilet' },
+  { value: 'other', label: 'Other' },
+];
+const mainsWaterStopcockOptions = [
+  { value: 'replace', label: 'Stopcock needs to be replaced' },
+  { value: 'repair', label: 'Stopcock needs to be repaired' },
+  { value: 'other', label: 'Other' },
+];
 
 export const BookPage: FC = () => {
   const [postcode, setPostcode] = useState<string>('');
@@ -71,63 +98,72 @@ export const BookPage: FC = () => {
 
   return (
     <>
-      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 rounded-lg max-w-full justify-center bg-white">
+      <div className="text-xl mx-auto my-5 min-w-[480px] shadow-lg px-5 py-3 rounded-lg max-w-full justify-center bg-white dark:bg-black">
         {currentPage === 1 && <>
-          <TextField label="Please enter your postcode to see if we cover your area." type="text" variant="standard" value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())} className="w-full" />
-          {!!postcode && !!locationNum && <div className="w-full text-base text-green-600">Good news! We cover your area!</div>}
-          {!!postcode && !locationNum && <div className="w-full text-base text-red-600 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
+            <div className="text-md/6 font-medium">Postcode</div>
+            <div className="text-md/6 mb-3">Please enter your postcode to see if we cover your area.</div>
+            <input
+              type="text" className="w-full rounded border border-stroke text-base py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+              value={postcode} onChange={e => setPostcode(e.target.value.toUpperCase())}
+            />
+          {!!postcode && !!locationNum && <div className="w-full text-base text-meta-3 font-bold">Good news! We cover your area!</div>}
+          {!!postcode && !locationNum && <div className="w-full text-base text-meta-7 font-bold">Sorry! Currently we don&apos;t cover your area!</div>}
         </>}
         {currentPage === 2 && <>
-          <FormControl>
-            <FormLabel>Please select your option.</FormLabel>
-            <RadioGroup
-              value={firstOption}
-              onChange={e => setFirstOption(e.target.value)}
-            >
-              <FormControlLabel value="gas-boiler" control={<Radio />} label="Gas Boiler" />
-              <FormControlLabel value="central-heating" control={<Radio />} label="Central Heating" />
-              <FormControlLabel value="plumbing" control={<Radio />} label="Plumbing" />
-              <FormControlLabel value="gas-fires" control={<Radio />} label="Gas Fires" />
-              <FormControlLabel value="cookers-oven" control={<Radio />} label="Gas Cookers & Oven" />
-              <FormControlLabel value="landlords" control={<Radio />} label="Landlords Gas Certificates" />
-              <FormControlLabel value="power-flush" control={<Radio />} label="Power Flush" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
-            </RadioGroup>
-          </FormControl>
+          <RadioGroup value={firstOption} onChange={e => setFirstOption(e)} aria-label="Server size" className="space-y-2">
+            {firstOptions.map((option, index) => (
+              <Radio
+                key={`firstoption${index}`}
+                value={option.value}
+                className="group relative flex cursor-pointer rounded-lg py-4 px-5 shadow-md transition focus:outline-none data-[focus]:outline-1"
+              >
+                <div className="flex w-full items-center">
+                  <CheckCircleIcon className="w-4 mr-3 opacity-0 transition group-data-[checked]:opacity-100" />
+                  <div className="text-sm/6">
+                    <p className="font-semibold">{option.label}</p>
+                  </div>
+                </div>
+              </Radio>
+            ))}
+          </RadioGroup>
         </>}
         {currentPage === 3 && firstOption === 'plumbing' && <>
-          <FormControl>
-            <FormLabel>Please select your option.</FormLabel>
-            <RadioGroup
-              value={plumbingOption}
-              onChange={e => setPlumbingOption(e.target.value)}
-            >
-              <FormControlLabel value="sink-tap-replace" control={<Radio />} label="Kitchen Sink tap Replacement" />
-              <FormControlLabel value="basin-tap-replace" control={<Radio />} label="Basin Tap Replacement" />
-              <FormControlLabel value="bath-tap-replace" control={<Radio />} label="Bath tap needs replacement bath panel must to be removable" />
-              <FormControlLabel value="sink-tap-repair" control={<Radio />} label="Sink tap,Basin tap or Bath dripping tap needs a repair" />
-              <FormControlLabel value="shower-install" control={<Radio />} label="Shower, Washing Machine, etc. Needs installing" />
-              <FormControlLabel value="burst-pipe" control={<Radio />} label="Burst Pipe repair" />
-              <FormControlLabel value="mains-water-stopcock" control={<Radio />} label="Mains water Stopcock" />
-              <FormControlLabel value="toilet-problem" control={<Radio />} label="I have a problem with my toilet" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
-            </RadioGroup>
-          </FormControl>
+          <RadioGroup value={plumbingOption} onChange={e => setPlumbingOption(e)} aria-label="Server size" className="space-y-2">
+            {plumbingOptions.map((option, index) => (
+              <Radio
+                key={`plumbingOption${index}`}
+                value={option.value}
+                className="group relative flex cursor-pointer rounded-lg py-4 px-5 shadow-md transition focus:outline-none data-[focus]:outline-1"
+              >
+                <div className="flex w-full items-center">
+                  <CheckCircleIcon className="w-4 mr-3 opacity-0 transition group-data-[checked]:opacity-100" />
+                  <div className="text-sm/6">
+                    <p className="font-semibold">{option.label}</p>
+                  </div>
+                </div>
+              </Radio>
+            ))}
+          </RadioGroup>
         </>}
         {currentPage === 4 && plumbingOption === 'mains-water-stopcock' && <>
           <div className="flex w-full">
             <div className="flex">
-              <FormControl>
-                <FormLabel>Please select your option.</FormLabel>
-                <RadioGroup
-                  value={mainsWaterStopcock}
-                  onChange={e => setMainsWaterStopcock(e.target.value)}
-                >
-                  <FormControlLabel value="replace" control={<Radio />} label="Stopcock needs to be replaced" />
-                  <FormControlLabel value="repair" control={<Radio />} label="Stopcock needs to be repaired" />
-                  <FormControlLabel value="other" control={<Radio />} label="Other" />
-                </RadioGroup>
-              </FormControl>
+              <RadioGroup value={mainsWaterStopcock} onChange={e => setMainsWaterStopcock(e)} aria-label="Server size" className="space-y-2">
+                {mainsWaterStopcockOptions.map((option, index) => (
+                  <Radio
+                    key={`mainsWaterStopcock${index}`}
+                    value={option.value}
+                    className="group relative flex cursor-pointer rounded-lg py-4 px-5 shadow-md whitespace-nowrap transition focus:outline-none data-[focus]:outline-1"
+                  >
+                    <div className="flex w-full items-center">
+                      <CheckCircleIcon className="w-4 mr-3 opacity-0 transition group-data-[checked]:opacity-100" />
+                      <div className="text-sm/6">
+                        <p className="font-semibold">{option.label}</p>
+                      </div>
+                    </div>
+                  </Radio>
+                ))}
+              </RadioGroup>
             </div>
             <div className="flex">
               <img src="/media/images/mains-water-stopcock.png" alt="Mains Stop Cock" width={130} height={200} />
@@ -139,23 +175,20 @@ export const BookPage: FC = () => {
           </div>
         </>}
         {currentPage === 5 && <>
-          <div><span className="text-red-400">Q001</span> Your fixed price quote is £150</div>
-          <div><span className="text-red-400">Q002</span> Daily deal discount applied £25</div>
-          <div><span className="text-red-400">Q003</span> Total to pay £125</div>
-          {mainsWaterStopcock === 'replace' && <div><span className="text-red-400">Q011</span></div>}
+          <div><span className="text-meta-7">Q001</span> Your fixed price quote is £150</div>
+          <div><span className="text-meta-7">Q002</span> Daily deal discount applied £25</div>
+          <div><span className="text-meta-7">Q003</span> Total to pay £125</div>
+          {mainsWaterStopcock === 'replace' && <div><span className="text-meta-7">Q011</span></div>}
         </>}
         {currentPage === 6 && <>
           <CalendarComponent setBookedTime={setBookedTime} />
         </>}
-        {currentPage === 7 && <>
-          <StripeComponent />
-        </>}
-        <div className="flex w-full max-w-96 my-4 mx-auto">
+        <div className="flex w-full max-w-94 my-4 mx-auto">
           <div className="flex flex-grow">
-            {currentPage > 1 && <Button variant="contained" onClick={() => setCurrentPage(currentPage - 1)} disabled={!postcode || !locationNum}>Back</Button>}
+            {currentPage > 1 && <button type="button" className="text-white rounded bg-primary duration-300 px-5 py-3 hover:opacity-90" onClick={() => setCurrentPage(currentPage - 1)} disabled={!postcode || !locationNum}>Back</button>}
           </div>
           <div className="flex flex-grow justify-end">
-            {!isEndPage && <Button variant="contained" onClick={() => setCurrentPage(currentPage + 1)} disabled={!postcode || !locationNum || (currentPage === 6 && !bookedTime)}>Next</Button>}
+            {!isEndPage && <button type="button" className="text-white rounded bg-primary duration-300 px-5 py-3 hover:opacity-90" onClick={() => setCurrentPage(currentPage + 1)} disabled={!postcode || !locationNum || (currentPage === 6 && !bookedTime)}>Next</button>}
           </div>
         </div>
       </div>

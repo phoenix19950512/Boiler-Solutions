@@ -1,17 +1,21 @@
-import { FC } from 'react';
-import { WhyChooseUsComp } from '../components/why-choose-us';
-import { HowItWorksComp } from '../components/how-it-works';
-import { OfferLinksComp } from '../components/offer-links';
-import { EnquireToday } from '../components/enquire-today';
-import { MyLink } from '../components/link';
-import { WeTakeProvide } from '../components/we-take-pride';
-import { LandingPage } from '../components/landingpage';
+import { FC } from "react";
+import { LandingPage } from "../common/Loader/Main/landingpage";
+import { WeTakeProvide } from "../common/Loader/Main/we-take-pride";
+import { MyLink } from "../common/Loader/Main/link";
+import { HowItWorksComp } from "../common/Loader/Main/how-it-works";
+import { OfferLinksComp } from "../common/Loader/Main/offer-links";
+import { WhyChooseUsComp } from "../common/Loader/Main/why-choose-us";
+import { EnquireToday } from "../common/Loader/Main/enquire-today";
+import { ImageSlider } from "../common/Image Slider";
 
 export const HomePage: FC = () => {
   return (
     <>
       <LandingPage title={<>Specialising in a range of Planned and reactive maintenance Services</>} subtitle={['Whatever the problem with your Plumbing, Gas, or Boiler', 'We can help']} />
       <WeTakeProvide />
+      <div className="flex w-full min-h-60">
+        <ImageSlider />
+      </div>
       <div className="flex flex-col px-10 md:px-20">
         <div className="text-3xl font-bold text-center font-serif italic my-10 text-cyan-800" style={{ textShadow: '0.5px 2.5px 6px cyan' }}>Breakdowns</div>
         <p className="text-lg mb-3">
@@ -20,9 +24,9 @@ export const HomePage: FC = () => {
           We can professionally diagnose the issue and repair several types of appliances such as Cookers, Range cookers, Gas fires, Combi Boilers, System Boilers, Back boilers, and Regular Boilers.
         </p>
         <div className="w-full mx-auto font-serif text-end italic pb-5 px-2 lg:px-10">
-          <MyLink className='text-pink-500 hover:text-pink-700 before:bg-pink-700' to='./boiler/repair'>Find out more about Boiler Repairs</MyLink><br />
-          <MyLink className='text-pink-500 hover:text-pink-700 before:bg-pink-700' to='./gas-cooker-oven/cooker-oven-repair'>Range Cooker Repairs</MyLink><br />
-          <MyLink className='text-pink-500 hover:text-pink-700 before:bg-pink-700' to='./gas-fire/repair'>Gas Fire Repairs</MyLink>
+          <MyLink className='text-meta-7 hover:text-meta-1 before:bg-meta-1' to='./boiler/repair'>Find out more about Boiler Repairs</MyLink><br />
+          <MyLink className='text-meta-7 hover:text-meta-1 before:bg-meta-1' to='./gas-cooker-oven/cooker-oven-repair'>Range Cooker Repairs</MyLink><br />
+          <MyLink className='text-meta-7 hover:text-meta-1 before:bg-meta-1' to='./gas-fire/repair'>Gas Fire Repairs</MyLink>
         </div>
       </div>
       <div className="flex flex-col px-10">
@@ -35,7 +39,7 @@ export const HomePage: FC = () => {
         </p>
       </div>
       <div className="flex flex-col px-10">
-        <div className="text-3xl font-bold text-center my-10 underline" style={{ textShadow: '0.5px 2.5px 6px cadetblue' }}>Plumbing Issue</div>
+        <div className="text-3xl font-bold text-center my-10" style={{ textShadow: '0.5px 2.5px 6px cadetblue' }}>Plumbing Issue</div>
         <p className="text-lg mb-3">
           <b>Plumbing Services:</b> Can attend to emergencies, such as leaky tap, burst pipes, severe leaks, broken toilet, or any other plubing issues that require immediate attention.
           Our team are at hand for a quick response and offer efficient resolution which is essential to minimise damage and resotre normalcy to the plubing system.
